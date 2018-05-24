@@ -36,3 +36,19 @@ $.ajax({
         console.log(mapMarkers);
     }
 });
+function initMap() {
+    var geocoder = ;
+}
+//START getLatLng
+function getLatLang(address) {
+    var resultLatLang = { lat: 0, lng: 0 };
+    geocoder.geocode({
+        'address': address
+    }, function (results, status) {
+        if (status === 'OK') {
+            resultLatLang.lat = results[0].geometry.location.lat();
+            resultLatLang.lng = results[0].geometry.location.lng();
+        }
+    });
+    return resultLatLng;
+} //end of getLatLang

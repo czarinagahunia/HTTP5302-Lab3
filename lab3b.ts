@@ -57,3 +57,26 @@ $.ajax({
         }
     }   
 );
+
+function initMap() {
+    let geocoder : object = ;
+}
+
+//START getLatLng
+function getLatLang(address : string) : LatLng {
+    let resultLatLang : LatLng = {lat:0, lng:0};
+
+    geocoder.geocode(
+        {
+            'address': address
+        },
+        function (results, status){
+            if(status === 'OK'){
+                resultLatLang.lat = results[0].geometry.location.lat();
+                resultLatLang.lng = results[0].geometry.location.lng();
+            }
+        }
+    );
+
+    return resultLatLng;
+}//end of getLatLang
